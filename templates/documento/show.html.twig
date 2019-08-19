@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Documento{% endblock %}
+
+{% block body %}
+    <h1>Documento</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdDocumento</th>
+                <td>{{ documento.idDocumento }}</td>
+            </tr>
+            <tr>
+                <th>DocumentoFilename</th>
+                <td>{{ documento.documentoFilename }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('documento_index') }}">back to list</a>
+
+    <a href="{{ path('documento_edit', {'idDocumento': documento.idDocumento}) }}">edit</a>
+
+    {{ include('documento/_delete_form.html.twig') }}
+{% endblock %}

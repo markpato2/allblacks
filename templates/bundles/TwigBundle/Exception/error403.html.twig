@@ -1,0 +1,10 @@
+{% block title %}
+    Acesso Negado
+{% endblock %}
+{% block body %}
+    <div>
+        <p>
+            {{ status_code }} :: {{ exception.message }}
+        </p>
+    </div>
+{% endblock %}

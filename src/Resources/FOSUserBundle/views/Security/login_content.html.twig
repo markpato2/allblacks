@@ -1,0 +1,44 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+
+        <!--label for="username" class="input-material">{{ 'security.login.username'|trans }}</label-->
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="Usuário" />
+
+
+
+
+        <!--label for="password" class="input-material" >{{ 'security.login.password'|trans }}</label-->
+        <input type="password" id="password" name="_password" required="required" class="form-control" placeholder="Senha"  />
+
+
+
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="checkbox pull-left" />
+        <label for="remember_me"   >{{ 'security.login.remember_me'|trans }}</label>
+
+
+    <div class="form-group">
+
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-lg btn-primary btn-block entrar" />
+
+    </div>
+
+
+
+</form>
+
+<div class="form-group">
+    Usuário para entrar ao sistema: <strong style="font-size: 24px">admin</strong> <br>
+    Senha do sistema: <strong style="font-size: 24px">admin</strong>
+
+</div>
+
+<a href="resetting/request" class="forgot-pass">Olvido la contraseña?</a><br><small>No tiene cuenta? </small><a href="register" class="signup">Registrarse</a>

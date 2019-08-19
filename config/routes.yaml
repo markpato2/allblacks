@@ -1,3 +1,21 @@
 #index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+ #   path: /login
+  #  controller: App\Controller\DocumentoController::index
+fos_user:
+  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+  requirements:
+    _locale: pt
+
+
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+homepage:
+  path: /admin
+
+
+
+
+
+

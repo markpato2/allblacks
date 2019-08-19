@@ -1,0 +1,76 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}AllBlacks{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" >
+
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.ico') }}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+
+
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Entrar AllBlacks</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="{{ asset('images/brand.gif') }}"
+                     alt="">
+{% block content %}
+    <div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        {% else %}
+            <!--a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a-->
+        {% endif %}
+    </div>
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    <div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
+{% endblock %}
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Javascript files-->
+
+
+<!--===============================================================================================-->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!--===============================================================================================-->
+
+
+
+</body>
+</html>
