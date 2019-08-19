@@ -76,9 +76,9 @@ class AdminController extends EasyAdminController
     public function indexAction(Request $request)
     {
 
-        echo $request;
+        //echo $request;
 
-        die();
+       // die();
         $this->initialize($request);
 
         if (null === $request->query->get('entity')) {
