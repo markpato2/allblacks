@@ -9,6 +9,20 @@ Ao finalizar a carga de dados no banco, o sistema salva o arquivo para ter como 
 
 Com a informação centralizada, o usuário que faz a operação de atualização de informações e envio de e-mails, vai conseguir fazer todo desde o sistema criado com as opções de atualização, criação e envio de e-mails para torcedores.
 
+Arquivo do Banco de dados
+- SQL_allblacks.sql
+
+<strong> Ferramentas usadas na criação do sistema: </strong><br>
+
+Apache2 <br>
+PHP 7.2.21 <br>
+MySQL 5.7.27 <br>
+HTML/CSS <br>
+JavaScript <br>
+Framework Symfony 4 <br>
+  - Bundle FosUser
+  - Bundle EasyAdmin
+
 Link do sistema criado
 
 - https://allblacks.markpato.com
